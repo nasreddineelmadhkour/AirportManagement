@@ -21,9 +21,7 @@ namespace AM.ApplicationCore.Domain
 
         public override string? ToString()
         {
-            return "\nFlight ID :"+FlightId.ToString() +" Destination : "+Destination.ToString()+
-                " Departure :" + Departure.ToString()+" Fligh Date : " +FlightDate.ToString() +
-                " Effective arrival :" +EffectiveArrival.ToString()+" Estimated Duration : "+EstimatedDuration.ToString()  ;
+            return "FlightDate : " + FlightDate.ToString()+" Destination : "+Destination.ToString()+ " EstimatedDuration : " + EstimatedDuration.ToString()+ " EffectiveArrival:" + EffectiveArrival.ToString();
         }
     }
 }

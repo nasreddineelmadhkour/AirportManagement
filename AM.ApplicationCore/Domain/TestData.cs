@@ -22,7 +22,7 @@ namespace AM.ApplicationCore
         public static Traveller traveller4 = new Traveller { PassportNumber = "7", FirstName = "traveller4", LastName = "traveller4", EmailAddress = "traveller4.traveller4@gmail.com", BirthDate = new DateTime(1983, 01, 01), HealthInformation = "Some troubles", Nationality = "American" };
         public static Traveller traveller5 = new Traveller { PassportNumber = "8", FirstName = "traveller5", LastName = "traveller5", EmailAddress = "traveller5.traveller5@gmail.com", BirthDate = new DateTime(1984, 01, 01), HealthInformation = "Some troubles", Nationality = "Spanish" };
         // Flights
-        // Affect all passengers to flight1
+        // Affect all passengers to flight1 
         public static Flight flight1 = new Flight { FlightDate = new DateTime(2022, 01, 01,15,10,10), Destination = "Paris", EffectiveArrival = new DateTime(2022, 01, 01,17,10,10),EstimatedDuration=110 ,Plane= Airbusplane };
         public static Flight flight2 = new Flight { FlightDate = new DateTime(2022, 02, 01,21,10,10), Destination = "Paris", EffectiveArrival = new DateTime(2022, 02, 01, 23, 10, 10), EstimatedDuration =105 , Plane = BoingPlane };
         public static Flight flight3 = new Flight { FlightDate = new DateTime(2022, 03, 01, 5, 10, 10), Destination = "Paris", EffectiveArrival = new DateTime(2022, 03, 01, 6, 40, 10), EstimatedDuration = 100, Plane = BoingPlane };

@@ -3,7 +3,36 @@ using AM.ApplicationCore;
 using AM.ApplicationCore.Domain;
 using AM.ApplicationCore.Services;
 
-Console.WriteLine("Hello, World!");
+//Console.WriteLine("Hello, World!");
 
 ServiceFlight sf = new ServiceFlight();
 sf.flights = TestData.listFlights;
+
+List<DateTime> dates = new List<DateTime>();
+
+dates = sf.GetFlightDates("Madrid");
+
+//par for
+/*
+for (int i = 0; i < dates.Count; i++)
+{
+    Console.WriteLine(dates[i].ToString());
+}
+//par foreach
+
+foreach (DateTime date in dates)
+{
+    Console.WriteLine(date.ToString());
+}
+*/
+Console.WriteLine("\n par Destination \n");
+sf.GetFlights("Destination", "Paris");
+
+
+Console.WriteLine("\n par FlightDate \n");
+sf.GetFlights("FlightDate", "2022/02/01 21:10:10");
+
+Console.WriteLine("\n par EffectiveArrival \n");
+sf.GetFlights("EffectiveArrival", "01/01/2022 17:10:10");
+
+

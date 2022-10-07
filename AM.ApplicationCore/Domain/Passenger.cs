@@ -25,11 +25,11 @@ namespace AM.ApplicationCore.Domain
         }
         public bool CheckProfile(String FirstName, String LastName,String EmailAdress)
         {
-            return this.FirstName.Equals(FirstName) && this.LastName.Equals(LastName)&& this.EmailAdress.Equals(EmailAdress);
+            return this.FirstName.Equals(FirstName) && this.LastName.Equals(LastName)&& this.EmailAddress.Equals(EmailAdress);
         }
         public override string? ToString()
         {
-            return "\nBirthday : "+Birthday.ToString()+ " PassportNumber : " + PassportNumber.ToString() + " EmailAdress : " + EmailAdress.ToString()+ " LastName : " + LastName.ToString()+ " TelNumber : " + TelNumber.ToString();
+            return "\nBirthday : "+ BirthDate.ToString()+ " PassportNumber : " + PassportNumber.ToString() + " EmailAdress : " + EmailAddress.ToString()+ " LastName : " + LastName.ToString()+ " TelNumber : " + TelNumber.ToString();
         }
     
     

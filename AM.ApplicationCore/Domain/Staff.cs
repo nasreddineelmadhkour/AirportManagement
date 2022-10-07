@@ -22,7 +22,7 @@ namespace AM.ApplicationCore.Domain
         }
         public override string? ToString()
         {
-            return "\nEmployedmentDate : " + EmployedmentDate.ToString() + " Function : "+ Function.ToString() + " Salary : "+ Salary.ToString();
+            return "\nEmployedmentDate : " + EmployementDate.ToString() + " Function : "+ Function.ToString() + " Salary : "+ Salary.ToString();
         }
     }
 }
