@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace AM.ApplicationCore.Domain
 {
@@ -10,6 +11,8 @@ namespace AM.ApplicationCore.Domain
     {
         public DateTime EmployementDate { get; set; }
         public string Function { get; set; }
+
+        [DataType(DataType.Currency)]
         public float Salary { get; set; }
 
 
