@@ -36,5 +36,12 @@ namespace AM.Infrastructure
 
 
         }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder config)
+        {
+
+            config.Properties<DateTime>().HaveColumnType("datetime2");
+
+        }
     }
 }
