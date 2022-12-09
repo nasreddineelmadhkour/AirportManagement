@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace AM.ApplicationCore.Domain
 {
-    public class Traveller : Passenger
+    public class Traveller: Passenger
     {
-        public String Nationality { get; set; }
-        public String HealthInformation { get; set; }
+        public string HealthInformation { get; set; }
+        public string Nationality { get; set; }
 
-
-  
-
-     
-  
-        public override void PassengerType(){
-            base.PassengerType();
-            Console.WriteLine( "im Traverller ");
-        }
-        public override string? ToString()
+        //TP1-Q6: Réimplémenter la méthode ToString()
+        public override string ToString()
         {
-            return "\nNationality : " + Nationality.ToString() + " HealthInformation : "+ HealthInformation.ToString();
+            base.ToString();
+            return "HealthInformation: " + HealthInformation + " Nationality : " + Nationality ;
+        }
+
+        //TP1-Q11.b: Réimplémenter la méthode PassengerType()
+        public override void PassengerType()
+        {
+            base.PassengerType();
+            Console.WriteLine("and I'm a traveller");
         }
     }
 }

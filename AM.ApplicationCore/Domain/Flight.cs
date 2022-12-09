@@ -1,34 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AM.ApplicationCore.Domain
 {
     public class Flight
     {
-        public String Airline { get; set; }
-        public virtual ICollection<Passenger> passengers { get; set; }
-
-        public int PlaneId { get; set; }
-        [ForeignKey("PlaneId")]
-        public virtual Plane Plane { get; set; }
-        public String Destination { get; set; }
-        public String Departure { get; set; }
-        public DateTime FlightDate { get; set; }
-
+        public string Airline { get; set; }
         public int FlightId { get; set; }
-        public DateTime EffectiveArrival { get; set; }
+        public DateTime FlightDate { get; set; }
         public int EstimatedDuration { get; set; }
-
-      
-
-        public override string? ToString()
+        public DateTime EffectiveArrival { get; set; }
+        public string Departure { get; set; }
+        public string Destination { get; set; }
+        //prop de navigation
+        //public virtual List<Passenger> Passengers { get; set; }
+        public virtual List<Ticket> Tickets { get; set; }
+        public  virtual Plane Plane { get; set; }
+        [ForeignKey("Plane")]
+        public virtual int PlaneId { get; set; }
+        //TP1-Q6: Réimplémenter la méthode ToString()
+        public override string ToString()
         {
-            return "FlightDate : " + FlightDate.ToString()+" Destination : "+Destination.ToString()+ " EstimatedDuration : " + EstimatedDuration.ToString()+ " EffectiveArrival:" + EffectiveArrival.ToString();
+            return "FlightId: " + FlightId + " FlightDate: " + FlightDate + " Destination: " + Destination;
         }
     }
 }

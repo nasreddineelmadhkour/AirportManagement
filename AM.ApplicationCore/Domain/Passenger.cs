@@ -1,61 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-
 
 namespace AM.ApplicationCore.Domain
 {
     public class Passenger
     {
-        public virtual ICollection<Flight> flights { get; set; }
+
         public int Id { get; set; }
 
-        [Display(Name = "Date of Birth"),DataType(DataType.Date)]
-        public DateTime BirthDate { get; set; }
-
-        [Key]
         [StringLength(7)]
-        public String PassportNumber { get; set; }
-        
+        public string PassportNumber { get; set; }
+        public FullName FullName { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Date of birth")]
+        public DateTime BirthDate { get; set; }
+        [RegularExpression(@"^[0-9]{8}$", ErrorMessage = "Invalid Phone Number!")]
+        public string TelNumber { get; set; }
         [DataType(DataType.EmailAddress)]
-        public String EmailAddress { get; set; }
-        [MinLength(3, ErrorMessage = "FirstName doit etre >3 "),MaxLength(25, ErrorMessage = "FirstName doit etre <25")]
-        public String FirstName { get; set; }
-        public String LastName { get; set; }
+        public string EmailAddress { get; set; }
+        //prop de navigation
+        //public virtual List<Flight> Flights { get; set; }
+        public virtual List<Ticket> Tickets { get; set; }
 
-        [RegularExpression(@"[^0-9]{8}$", ErrorMessage = "doit etre numero 8 chiffre")]
-        public int TelNumber { get; set; }
-
-
-
-
-        public bool CheckProfile(String FirstName,String LastName)
+        //TP1-Q6: Réimplémenter la méthode ToString()
+        public override string ToString()
         {
-            return this.FirstName.Equals(FirstName) && this.LastName.Equals(LastName);
+            return "FirstName: " + FullName.FirstName+ " LastName: " + FullName.LastName +  " date of Birth: " + BirthDate;
         }
-        public bool CheckProfile(String FirstName, String LastName,String EmailAdress)
+
+        //TP1-Q10: Créer les trois méthodes bool CheckProfile(...)
+        //public bool CheckProfile(string firstName, string lastName)
+        //{
+        //    return FirstName == firstName && LastName == lastName;
+        //}
+
+        //public bool CheckProfile(string firstName, string lastName, string email)
+        //{
+        //    return FirstName == firstName && LastName == lastName && EmailAddress == email;
+        //}
+
+        public bool CheckProfile(string firstName, string lastName, string email = null)
         {
-            return this.FirstName.Equals(FirstName) && this.LastName.Equals(LastName)&& this.EmailAddress.Equals(EmailAdress);
+            if (email != null)
+                return FullName.FirstName == firstName && FullName.LastName == lastName && EmailAddress == email;
+            else
+                return FullName.FirstName == firstName && FullName.LastName == lastName;
         }
-        public override string? ToString()
-        {
-            return "\nBirthday : "+ BirthDate.ToString()+ " PassportNumber : " + PassportNumber.ToString() + " EmailAdress : " + EmailAddress.ToString()+ " LastName : " + LastName.ToString()+ " TelNumber : " + TelNumber.ToString();
-        }
-    
-    
-    
+
+        //TP1-Q11.a: Implémenter la méthode PassengerType()
         public virtual void PassengerType()
         {
-
-            Console.WriteLine("im a passanger ");
-           
+            Console.WriteLine("I am a Passenger");
         }
-    
+
     }
-
-
-
 }

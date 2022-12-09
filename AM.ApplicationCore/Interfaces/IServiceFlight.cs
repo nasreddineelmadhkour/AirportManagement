@@ -1,22 +1,22 @@
 ﻿using AM.ApplicationCore.Domain;
-using AM.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+
 namespace AM.ApplicationCore.Interfaces
 {
-    public interface IServiceFlight
+   public interface IServiceFlight: IService<Flight>
     {
-        public void ShowFlightDetails(Plane p);
-        public void GetFlights(string filterType, string filterValue);
-
-        public List<Flight> OrderedDurationFlights();
-        public List<Traveller> SeniorTravellers(Flight flight);
-        public void DestinationGroupedFlights();
-
-
-
-
+        List<DateTime> GetFlightDates(string destination);
+        void GetFlights(string filterType, string filterValue);
+        void ShowFlightDetails(Plane plane);
+        int ProgrammedFlightNumber(DateTime startDate);
+        double DurationAverage(string destination);
+        IEnumerable<Flight> OrderedDurationFlights();
+        IEnumerable<String> SeniorTravellers(Flight f);
+        IEnumerable<IGrouping<string, Flight>> DestinationGroupedFlights();
+        List<Flight> GetFlightByDate(DateTime dateDepart);
     }
 }
